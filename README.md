@@ -1,4 +1,4 @@
-<b>Binary trees</b>
+<b><h1>Binary trees</h1></b>
 
 	Insertion
 	Deletion

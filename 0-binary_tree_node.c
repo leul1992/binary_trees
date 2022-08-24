@@ -7,9 +7,11 @@
  */
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 {
-	struct binary_tree_s *temp = (struct binary_tree_s*)malloc(sizeof(struct binary_tree_s));
+	struct binary_tree_s *temp = (struct binary_tree_s *)
+		malloc(sizeof(struct binary_tree_s));
+
 	temp->n = value;
 	temp->left = temp->right = NULL;
 	temp->parent = parent;
-	return temp;
+	return (temp);
 }

@@ -22,15 +22,15 @@ void node_help(const binary_tree_t *tree, void (*func)(int), size_t level)
  */
 size_t height(const binary_tree_t *tree)
 {
-	if (!tree || !(tree->left || tree->right))
-		return (0);
-	int left_height = height(tree->left);
-	int right_height = height(tree->right);
+	size_t height_l = 0;
+	size_t height_r = 0;
 
-	if (left_height > right_height)
-		return (left_height + 1);
-	else
-		return (right_height + 1);
+	if (!tree)
+		return (0);
+
+	height_l = tree->left ? 1 + binary_tree_height(tree->left) : 0;
+	height_r = tree->right ? 1 + binary_tree_height(tree->right) : 0;
+	return (height_l > height_r ? height_l : height_r);
 }
 
 /**
@@ -44,7 +44,8 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 {
 	size_t level, maxlevel;
 
-	if (!tree || !func){};
+	if (!tree || !func)
+		return;
 
 	maxlevel = height(tree) + 1;
 
